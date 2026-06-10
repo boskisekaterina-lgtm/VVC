@@ -1,0 +1,587 @@
+<!-- MBA landing block for Tilda. Images use short links: hero-karen-shakhnazarov.png and structure-mba.png.webp. Upload these images to Tilda and replace the filenames with Tilda file URLs if needed. -->
+<style>
+ .mba-tilda-block {
+  --ink: #14213d;
+  --muted: #62708a;
+  --line: #dfe5ee;
+  --paper: #ffffff;
+  --soft: #f4f7fb;
+  --accent: #d43349;
+  --accent-dark: #a91f32;
+  --blue: #0b3975;
+} .mba-tilda-block, .mba-tilda-block * {
+  box-sizing: border-box;
+  color: inherit !important;
+} .mba-tilda-block {
+  margin: 0;
+  color: var(--ink) !important;
+  background: var(--paper);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+} .mba-tilda-block a,
+.mba-tilda-block a:link,
+.mba-tilda-block a:visited,
+.mba-tilda-block a:hover,
+.mba-tilda-block a:active,
+.mba-tilda-block a:focus {
+  color: inherit !important;
+  text-decoration: none;
+} .mba-tilda-block img {
+  display: block;
+  max-width: 100%;
+} .mba-tilda-block .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px clamp(20px, 5vw, 72px);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+} .mba-tilda-block .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+} .mba-tilda-block .brand-mark {
+  display: grid;
+  width: 50px;
+  height: 36px;
+  place-items: center;
+  color: #fff !important;
+  background: var(--blue);
+  border-radius: 4px;
+  letter-spacing: 0;
+} .mba-tilda-block .brand-text {
+  color: var(--muted) !important;
+  font-size: 14px;
+} .mba-tilda-block .nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  color: var(--muted) !important;
+  font-size: 14px;
+} .mba-tilda-block .nav a:hover {
+  color: var(--accent) !important;
+} .mba-tilda-block .weather-widget {
+  display: grid;
+  min-width: 206px;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--muted) !important;
+  font-size: 12px;
+} .mba-tilda-block .weather-city {
+  grid-column: 1 / -1;
+  color: var(--blue) !important;
+  font-weight: 700;
+} .mba-tilda-block .weather-widget strong {
+  color: var(--ink) !important;
+  font-size: 20px;
+  line-height: 1;
+} .mba-tilda-block .weather-widget_error {
+  border-color: #f1c3ca;
+} .mba-tilda-block .hero {
+  position: relative;
+  display: flex;
+  min-height: 82vh;
+  align-items: center;
+  padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 72px);
+  background: #eef3fa url("hero-karen-shakhnazarov.png") right center / contain no-repeat;
+} .mba-tilda-block .hero::before {
+  position: absolute;
+  inset: 0 32% 0 0;
+  content: "";
+  background: rgba(255, 255, 255, 0.94);
+} .mba-tilda-block .hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+} .mba-tilda-block .eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent) !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+} .mba-tilda-block h1, .mba-tilda-block h2, .mba-tilda-block h3, .mba-tilda-block p {
+  margin-top: 0;
+} .mba-tilda-block h1 {
+  margin-bottom: 20px;
+  color: var(--blue) !important;
+  font-size: 88px;
+  line-height: 0.95;
+} .mba-tilda-block h2 {
+  margin-bottom: 18px;
+  font-size: 46px;
+  line-height: 1.05;
+} .mba-tilda-block h3 {
+  margin-bottom: 10px;
+  font-size: 21px;
+  line-height: 1.2;
+} .mba-tilda-block .lead {
+  max-width: 680px;
+  color: #31405a !important;
+  font-size: 22px;
+} .mba-tilda-block .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+} .mba-tilda-block .button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+} .mba-tilda-block .button.primary {
+  color: #fff !important;
+  background: var(--accent);
+} .mba-tilda-block .button.primary:hover {
+  background: var(--accent-dark);
+} .mba-tilda-block .button.secondary {
+  color: var(--blue) !important;
+  border-color: var(--blue);
+  background: #fff;
+} .mba-tilda-block .button.pay {
+  color: #fff !important;
+  background: #111111;
+} .mba-tilda-block .button.pay:hover {
+  background: #000000;
+} .mba-tilda-block .hero-facts {
+  display: grid;
+  width: min(100%, 660px);
+  grid-template-columns: repeat(3, 1fr);
+  margin: 32px 0 0;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+} .mba-tilda-block .hero-facts div {
+  padding: 18px;
+} .mba-tilda-block .hero-facts div + div {
+  border-left: 1px solid var(--line);
+} .mba-tilda-block dt {
+  color: var(--muted) !important;
+  font-size: 12px;
+  text-transform: uppercase;
+} .mba-tilda-block dd {
+  margin: 5px 0 0;
+  font-weight: 700;
+} .mba-tilda-block .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--blue);
+  color: #fff !important;
+} .mba-tilda-block .stats div {
+  min-height: 148px;
+  padding: 28px clamp(20px, 4vw, 48px);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+} .mba-tilda-block .stats strong {
+  display: block;
+  font-size: 52px;
+  line-height: 1;
+} .mba-tilda-block .stats span {
+  display: block;
+  max-width: 180px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.82) !important;
+} .mba-tilda-block .section {
+  padding: clamp(56px, 8vw, 110px) clamp(20px, 5vw, 72px);
+} .mba-tilda-block .two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1.2fr);
+  gap: clamp(28px, 6vw, 80px);
+} .mba-tilda-block .text-block {
+  color: #31405a !important;
+  font-size: 19px;
+} .mba-tilda-block .section-heading {
+  max-width: 760px;
+  margin-bottom: 36px;
+} .mba-tilda-block .program-grid,
+.audience {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+} .mba-tilda-block .program-grid article,
+.audience article {
+  min-height: 230px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+} .mba-tilda-block .icon {
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 28px;
+  place-items: center;
+  color: #fff !important;
+  background: var(--accent);
+  border-radius: 4px;
+  font-weight: 700;
+} .mba-tilda-block .structure-image {
+  margin: 28px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+} .mba-tilda-block .structure-image img {
+  width: 100%;
+} .mba-tilda-block .split-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.9fr);
+  gap: clamp(28px, 5vw, 70px);
+  color: #fff !important;
+  background: var(--blue);
+} .mba-tilda-block .split-band .eyebrow {
+  color: #ffb2bd !important;
+} .mba-tilda-block .split-band p {
+  max-width: 720px;
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-size: 19px;
+} .mba-tilda-block .check-list {
+  display: grid;
+  gap: 14px;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+} .mba-tilda-block .check-list li {
+  padding: 18px 20px;
+  border-left: 4px solid var(--accent);
+  background: rgba(255, 255, 255, 0.09);
+} .mba-tilda-block .audience {
+  grid-template-columns: repeat(3, 1fr);
+} .mba-tilda-block .audience article {
+  min-height: 190px;
+  background: #fff;
+} .mba-tilda-block .apply-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+  gap: clamp(28px, 5vw, 72px);
+  background: var(--soft);
+} .mba-tilda-block .apply-section p {
+  max-width: 580px;
+  color: #31405a !important;
+  font-size: 19px;
+} .mba-tilda-block .form {
+  display: grid;
+  gap: 16px;
+  align-self: start;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+} .mba-tilda-block label {
+  display: grid;
+  gap: 8px;
+  color: var(--muted) !important;
+  font-size: 14px;
+} .mba-tilda-block input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1px solid #cbd4e1;
+  border-radius: 4px;
+  color: var(--ink) !important;
+  font: inherit;
+} .mba-tilda-block input:focus {
+  border-color: var(--blue);
+  outline: 3px solid rgba(11, 57, 117, 0.12);
+} .mba-tilda-block .footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px clamp(20px, 5vw, 72px);
+  color: rgba(255, 255, 255, 0.72) !important;
+  background: #111827;
+} .mba-tilda-block .footer span:first-child {
+  color: #fff !important;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .two-column,
+  .split-band,
+  .apply-section {
+    grid-template-columns: 1fr;
+  } .mba-tilda-block .hero {
+    background: #eef3fa url("hero-karen-shakhnazarov.png") right center / cover no-repeat;
+  } .mba-tilda-block .hero::before {
+    inset: 0;
+    background: rgba(255, 255, 255, 0.86);
+  } .mba-tilda-block h1 {
+    font-size: 64px;
+  } .mba-tilda-block h2 {
+    font-size: 38px;
+  } .mba-tilda-block .stats,
+  .program-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  } .mba-tilda-block .weather-widget {
+    width: 100%;
+  } .mba-tilda-block .nav {
+    gap: 12px;
+  } .mba-tilda-block .hero {
+    min-height: auto;
+  } .mba-tilda-block h1 {
+    font-size: 46px;
+  } .mba-tilda-block h2 {
+    font-size: 31px;
+  } .mba-tilda-block .lead {
+    font-size: 18px;
+  } .mba-tilda-block .hero-facts,
+  .stats,
+  .program-grid,
+  .audience {
+    grid-template-columns: 1fr;
+  } .mba-tilda-block .hero-facts div + div {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  } .mba-tilda-block .stats div {
+    min-height: 120px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  } .mba-tilda-block .footer {
+    flex-direction: column;
+  }
+}
+
+</style>
+<div class="mba-tilda-block"><header class="site-header">
+      <a class="brand" href="#top" aria-label="MBA">
+        <span class="brand-mark">MBA</span>
+        <span class="brand-text">Бизнес-школа</span>
+      </a>
+      <nav class="nav" aria-label="Навигация">
+        <a href="#about">О программе</a>
+        <a href="#structure">Структура</a>
+        <a href="#format">Формат</a>
+        <a href="#apply">Заявка</a>
+      </nav>
+      <div class="weather-widget" data-weather-widget>
+        <span class="weather-city">Санкт-Петербург</span>
+        <strong data-weather-temp>--</strong>
+        <span data-weather-desc>загрузка</span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Продолжается набор</p>
+          <h1>Программа MBA</h1>
+          <p class="lead">Мастер делового администрирования для руководителей, предпринимателей и специалистов, которые хотят системно управлять бизнесом, командой и ростом.</p>
+          <dl class="hero-facts">
+            <div>
+              <dt>Старт</dt>
+              <dd>27 мая</dd>
+            </div>
+            <div>
+              <dt>Формат</dt>
+              <dd>очно и онлайн</dd>
+            </div>
+            <div>
+              <dt>Фокус</dt>
+              <dd>управление и стратегия</dd>
+            </div>
+          </dl>
+          <div class="hero-actions">
+            <a class="button primary" href="#apply">Оставить заявку</a>
+            <a class="button secondary" href="#structure">Смотреть программу</a>
+            <a class="button pay" href="#apply">Оплатить</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Ключевые факты">
+        <div>
+          <strong>12</strong>
+          <span>обязательных дисциплин</span>
+        </div>
+        <div>
+          <strong>2</strong>
+          <span>специализации на выбор</span>
+        </div>
+        <div>
+          <strong>2</strong>
+          <span>выездных модуля</span>
+        </div>
+        <div>
+          <strong>1</strong>
+          <span>итоговый проект</span>
+        </div>
+      </section>
+
+      <section id="about" class="section two-column">
+        <div>
+          <p class="eyebrow">О программе</p>
+          <h2>Практическое управленческое образование</h2>
+        </div>
+        <div class="text-block">
+          <p>Программа помогает собрать управленческую картину целиком: экономика, финансы, маркетинг, операции, стратегия, HR и лидерство. Участники работают с кейсами, проектами и инструментами, которые можно применять в текущей работе.</p>
+          <p>Логика сайта в референсе построена как деловой лендинг: сначала обещание и параметры, затем структура обучения, преимущества и понятный следующий шаг.</p>
+        </div>
+      </section>
+
+      <section id="structure" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Структура</p>
+          <h2>Из чего состоит MBA</h2>
+        </div>
+        <div class="program-grid">
+          <article>
+            <span class="icon">01</span>
+            <h3>Базовые дисциплины</h3>
+            <p>Финансы, экономика, маркетинг, операционный менеджмент, организационное поведение и стратегия.</p>
+          </article>
+          <article>
+            <span class="icon">02</span>
+            <h3>Профессиональные навыки</h3>
+            <p>Проектное управление, анализ данных, принятие решений, работа с ИИ-инструментами в бизнесе.</p>
+          </article>
+          <article>
+            <span class="icon">03</span>
+            <h3>Специализация</h3>
+            <p>Выбор направления под личную траекторию: управление бизнесом, продуктом или развитием компании.</p>
+          </article>
+          <article>
+            <span class="icon">04</span>
+            <h3>Итоговый проект</h3>
+            <p>Индивидуальная или групповая квалификационная работа с защитой управленческого решения.</p>
+          </article>
+        </div>
+        <figure class="structure-image">
+          <img src="structure-mba.png.webp" alt="Схема структуры программы MBA">
+        </figure>
+      </section>
+
+      <section id="format" class="section split-band">
+        <div>
+          <p class="eyebrow">Формат</p>
+          <h2>Учеба без отрыва от управленческой практики</h2>
+          <p>Занятия объединяют очные модули, онлайн-встречи, разборы кейсов и проектную работу. Такой формат подходит тем, кто совмещает обучение с интенсивной занятостью.</p>
+        </div>
+        <ul class="check-list">
+          <li>вечерние и модульные занятия</li>
+          <li>работа с преподавателями и практиками</li>
+          <li>прикладные задания по реальным бизнес-ситуациям</li>
+          <li>сообщество руководителей и предпринимателей</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Для кого</p>
+          <h2>Кому подойдет программа</h2>
+        </div>
+        <div class="audience">
+          <article>
+            <h3>Руководителям</h3>
+            <p>Чтобы усилить системность управления, финансы, стратегию и работу с командами.</p>
+          </article>
+          <article>
+            <h3>Предпринимателям</h3>
+            <p>Чтобы масштабировать бизнес, найти точки роста и структурировать управленческие решения.</p>
+          </article>
+          <article>
+            <h3>Экспертам</h3>
+            <p>Чтобы перейти на управленческий уровень и говорить с бизнесом на языке результатов.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="apply" class="section apply-section">
+        <div>
+          <p class="eyebrow">Заявка</p>
+          <h2>Получить консультацию</h2>
+          <p>Оставьте контакты, и координатор программы расскажет о расписании, поступлении и формате обучения.</p>
+        </div>
+        <form class="form">
+          <label>
+            Имя
+            <input type="text" name="name" placeholder="Как к вам обращаться">
+          </label>
+          <label>
+            Телефон или email
+            <input type="text" name="contact" placeholder="+7 000 000-00-00">
+          </label>
+          <button class="button primary" type="button">Отправить</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>MBA</span>
+      <span>Демонстрационный сайт на основе референса</span>
+    </footer>
+    <script>
+      (function () {
+        const widget = document.querySelector('[data-weather-widget]');
+        if (!widget) return;
+
+        const tempEl = widget.querySelector('[data-weather-temp]');
+        const descEl = widget.querySelector('[data-weather-desc]');
+        const codes = {
+          0: 'ясно',
+          1: 'малооблачно',
+          2: 'облачно',
+          3: 'пасмурно',
+          45: 'туман',
+          48: 'туман',
+          51: 'морось',
+          53: 'морось',
+          55: 'морось',
+          61: 'дождь',
+          63: 'дождь',
+          65: 'сильный дождь',
+          71: 'снег',
+          73: 'снег',
+          75: 'сильный снег',
+          80: 'ливень',
+          81: 'ливень',
+          82: 'сильный ливень',
+          95: 'гроза'
+        };
+
+        async function loadWeather() {
+          try {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=59.9386&longitude=30.3141&current=temperature_2m,weather_code,wind_speed_10m&timezone=Europe%2FMoscow';
+            const response = await fetch(url, { cache: 'no-store' });
+            if (!response.ok) throw new Error('weather request failed');
+            const data = await response.json();
+            const current = data.current || {};
+            const temp = Math.round(current.temperature_2m);
+            const wind = Math.round(current.wind_speed_10m || 0);
+            tempEl.textContent = `${temp > 0 ? '+' : ''}${temp}°`;
+            descEl.textContent = `${codes[current.weather_code] || 'погода'} · ветер ${wind} м/с`;
+            widget.classList.remove('weather-widget_error');
+          } catch (error) {
+            tempEl.textContent = '--';
+            descEl.textContent = 'нет данных';
+            widget.classList.add('weather-widget_error');
+          }
+        }
+
+        loadWeather();
+        window.setInterval(loadWeather, 10 * 60 * 1000);
+      })();
+    </script></div>

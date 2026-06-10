@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ConfLink - приложение для нетворкинга на конференциях</title>
+    <meta name="description" content="Рабочий прототип приложения для поиска полезных контактов, планирования встреч и сопровождения нетворкинга на конференциях.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Главная навигация">
+        <a class="brand" href="#overview" aria-label="ConfLink">
+          <span class="brand-mark">CL</span>
+          <span>
+            <strong>ConfLink</strong>
+            <small>Tech Summit 2026</small>
+          </span>
+        </a>
+
+        <nav class="nav">
+          <button class="nav-link active" type="button" data-view-target="overview">
+            <span class="nav-icon">⌂</span>
+            Обзор
+          </button>
+          <button class="nav-link" type="button" data-view-target="people">
+            <span class="nav-icon">◌</span>
+            Участники
+          </button>
+          <button class="nav-link" type="button" data-view-target="schedule">
+            <span class="nav-icon">□</span>
+            Программа
+          </button>
+          <button class="nav-link" type="button" data-view-target="meetings">
+            <span class="nav-icon">✓</span>
+            Встречи
+          </button>
+        </nav>
+
+        <div class="profile-card">
+          <div class="avatar self">АП</div>
+          <div>
+            <strong>Анна Петрова</strong>
+            <span>Product Lead</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Нетворкинг без хаоса</p>
+            <h1>Найдите нужных людей до следующего кофе-брейка</h1>
+          </div>
+          <div class="quick-actions" aria-label="Быстрые действия">
+            <button class="icon-button" type="button" data-open-focus title="Фокус на рекомендации">◎</button>
+            <button class="icon-button" type="button" data-export title="Экспорт контактов">⇩</button>
+          </div>
+        </header>
+
+        <section class="hero-panel">
+          <img src="conference-lounge.png" alt="Лаунж-зона современной бизнес-конференции">
+          <div class="hero-copy">
+            <span>Сегодня, 12 мая</span>
+            <h2>18 совпадений по интересам, 4 свободных слота, 2 входящих запроса</h2>
+            <p>Приложение помогает быстро понять, с кем поговорить, когда назначить встречу и какие контакты стоит довести до следующего шага.</p>
+          </div>
+        </section>
+
+        <section class="metrics" aria-label="Ключевые показатели">
+          <article>
+            <span>Лучшее совпадение</span>
+            <strong data-top-match>94%</strong>
+            <small>по целям и индустрии</small>
+          </article>
+          <article>
+            <span>Запланировано</span>
+            <strong data-meetings-count>0</strong>
+            <small>встреч на сегодня</small>
+          </article>
+          <article>
+            <span>Сохранено</span>
+            <strong data-saved-count>0</strong>
+            <small>контактов в списке</small>
+          </article>
+          <article>
+            <span>Свободно</span>
+            <strong>14:40</strong>
+            <small>ближайший слот</small>
+          </article>
+        </section>
+
+        <section id="overview" class="view active" data-view="overview">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Рекомендации</p>
+              <h2>С кем стоит познакомиться</h2>
+            </div>
+            <button class="text-button" type="button" data-view-target="people">Все участники</button>
+          </div>
+          <div class="recommendation-grid" data-recommendations></div>
+        </section>
+
+        <section id="people" class="view" data-view="people">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Каталог</p>
+              <h2>Участники конференции</h2>
+            </div>
+            <label class="search">
+              <span>Поиск</span>
+              <input type="search" data-search placeholder="Имя, компания, интерес">
+            </label>
+          </div>
+
+          <div class="filters" aria-label="Фильтры участников">
+            <button class="chip active" type="button" data-filter="all">Все</button>
+            <button class="chip" type="button" data-filter="Инвестиции">Инвестиции</button>
+            <button class="chip" type="button" data-filter="SaaS">SaaS</button>
+            <button class="chip" type="button" data-filter="AI">AI</button>
+            <button class="chip" type="button" data-filter="HR Tech">HR Tech</button>
+          </div>
+
+          <div class="people-grid" data-people></div>
+        </section>
+
+        <section id="schedule" class="view" data-view="schedule">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Программа</p>
+              <h2>Сессии, где проще начать разговор</h2>
+            </div>
+          </div>
+          <div class="agenda" data-agenda></div>
+        </section>
+
+        <section id="meetings" class="view" data-view="meetings">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">План</p>
+              <h2>Мои встречи и контакты</h2>
+            </div>
+          </div>
+          <div class="meeting-layout">
+            <div>
+              <h3>Назначенные встречи</h3>
+              <div class="meeting-list" data-meetings></div>
+            </div>
+            <div>
+              <h3>Сохраненные контакты</h3>
+              <div class="saved-list" data-saved></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+# Временные папки
+.docx_build_analysis_final_*/
+.docx_repack_*/
+verify_8may/
+verify_dashboard/
+verify_weeek4/
+weeek_3_edit/
+weeek_3_inspect/
+weeek_4_by_8may_unpack/
+weeek_4_current_inspect/
+weeek_4_done_unpack/
+weeek_4_inspect/
+weeek_3_dashboard.xlsx
+
+# Zip-архивы
+*.zip
+
+# Системное
+.env
+*.log
+
+# Claude Code — локальные настройки (содержат токены)
+.claude/

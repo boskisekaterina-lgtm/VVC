@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DFD и BPMN: ввод поставщика в торговую сеть</title>
+<style>
+  @page { margin: 1.4cm; }
+  body { font-family: Arial, sans-serif; color: #111827; line-height: 1.28; }
+  h1 { font-size: 20pt; margin: 0 0 8px; }
+  h2 { font-size: 15pt; margin: 18px 0 8px; color: #0f3f6e; page-break-after: avoid; }
+  h3 { font-size: 12pt; margin: 12px 0 6px; color: #0f3f6e; page-break-after: avoid; }
+  p { margin: 5px 0 9px; }
+  table { border-collapse: collapse; width: 100%; margin: 8px 0 14px; page-break-inside: avoid; }
+  th, td { border: 1px solid #6b7280; padding: 6px; vertical-align: middle; font-size: 9pt; }
+  th { background: #dbeafe; font-weight: bold; text-align: center; }
+  .meta { color: #52606d; font-size: 9pt; }
+  .caption { font-weight: bold; color: #0f3f6e; margin: 8px 0 6px; }
+  .diagram { border: 1px solid #6b7280; padding: 8px; margin: 8px 0 16px; background: #ffffff; page-break-inside: avoid; }
+  .entity { border: 2px solid #374151; background: #f9fafb; text-align: center; font-weight: bold; }
+  .process { border: 2px solid #1d4ed8; background: #eff6ff; text-align: center; font-weight: bold; }
+  .store { border: 2px solid #64748b; border-left-width: 8px; background: #f8fafc; text-align: center; font-weight: bold; }
+  .state { border: 1px dashed #475569; background: #f8fafc; text-align: center; font-size: 8.5pt; }
+  .goal { border: 2px solid #15803d; border-radius: 50%; background: #f0fdf4; text-align: center; font-weight: bold; }
+  .decision { border: 2px solid #b45309; background: #fffbeb; text-align: center; font-weight: bold; transform: rotate(45deg); width: 82px; height: 82px; margin: auto; }
+  .decision span { display: block; transform: rotate(-45deg); padding-top: 18px; font-size: 8.4pt; }
+  .arrow { text-align: center; color: #0f3f6e; font-weight: bold; font-size: 8.5pt; }
+  .role { border: 1px solid #64748b; background: #f8fafc; text-align: center; font-size: 8.5pt; }
+  .control { border: 2px solid #7c3aed; background: #f5f3ff; text-align: center; font-weight: bold; }
+  .analytics { border: 2px solid #0891b2; background: #ecfeff; text-align: center; font-weight: bold; }
+  .small { font-size: 8.3pt; color: #4b5563; font-weight: normal; }
+</style>
+</head>
+<body>
+
+<h1>DFD и BPMN-схемы процесса “Ввод поставщика в торговую сеть”</h1>
+<p class="meta">Источник данных: ВВС2.csv, процесс “Гант Дивизиона Ввод в сеть”. Методическая основа: DFD как схема потоков данных, где показываются внешние сущности, процессы, хранилища и потоки данных.</p>
+
+<h2>1. Назначение документа</h2>
+<p>Документ описывает процесс ввода поставщика в торговую сеть в двух представлениях: DFD показывает движение данных и изменение состояния базы, BPMN показывает последовательность действий, роли и точки выбора. Диаграммы структурированы, пронумерованы и подготовлены для чтения в электронном виде и при печати.</p>
+
+<h2>2. Условные обозначения</h2>
+<table>
+  <tr><th>Элемент</th><th>Как обозначен</th><th>Что означает</th></tr>
+  <tr><td>Внешняя сущность DFD</td><td class="entity">Прямоугольник с темной рамкой</td><td>Участник, который передает или получает данные: поставщик, собственник, сеть, ЛПР, команда КВК.</td></tr>
+  <tr><td>Процесс / действие</td><td class="process">Прямоугольник с синей рамкой</td><td>Действие, которое преобразует входные данные в выходные.</td></tr>
+  <tr><td>Хранилище данных</td><td class="store">Блок с усиленной левой границей</td><td>База, журнал, реестр или набор документов, где данные хранятся и используются дальше.</td></tr>
+  <tr><td>Поток данных</td><td class="arrow">Стрелка с подписью</td><td>Что именно передается между сущностью, процессом и хранилищем.</td></tr>
+  <tr><td>Цель</td><td class="goal">Круг</td><td>Целевой результат процесса.</td></tr>
+  <tr><td>Точка выбора / альтернатива</td><td><div class="decision"><span>Ромб</span></div></td><td>Решение о переходе процесса дальше или возврате на доработку.</td></tr>
+</table>
+
+<h2>3. DFD-диаграмма, уровень 0</h2>
+<p class="caption">Рисунок 1. Контекстная DFD процесса “Ввод поставщика в торговую сеть”</p>
+<div class="diagram">
+<table>
+  <tr>
+    <td class="entity">Поставщик / производитель<br><span class="small">данные компании, анкета, договоры, отчеты</span></td>
+    <td class="arrow">→<br>первичные данные<br>←<br>контакты ЛПР, условия входа</td>
+    <td rowspan="3" class="process">P0<br>Ввести поставщика<br>в торговую сеть</td>
+    <td class="arrow">→<br>предложение, материалы<br>←<br>заказ, оплата, обратная связь</td>
+    <td class="entity">Торговая сеть</td>
+  </tr>
+  <tr>
+    <td class="entity">Собственник производителя<br><span class="small">решение по условиям</span></td>
+    <td class="arrow">→<br>подтверждение условий</td>
+    <td class="arrow">→<br>коммерческое предложение<br>←<br>требования и статус</td>
+    <td class="entity">ЛПР сети</td>
+  </tr>
+  <tr>
+    <td class="entity">Команда КВК / дивизион<br><span class="small">лиды, сопровождение, контроль</span></td>
+    <td class="arrow">→<br>лиды, статусы, контроль</td>
+    <td class="arrow">→</td>
+    <td class="goal">Цель:<br>заказ и закрепление<br>на полке</td>
+  </tr>
+</table>
+</div>
+
+<h2>4. DFD-диаграмма, уровень 1</h2>
+<p class="caption">Рисунок 2. Логическая DFD: последовательные этапы, потоки данных, хранилища и владельцы этапов</p>
+<div class="diagram">
+<table>
+  <tr>
+    <th colspan="13">Процесс: ввод поставщика в торговую сеть</th>
+  </tr>
+  <tr>
+    <td class="process">P1<br>Собрать информацию<br><span class="small">вход: ЦЗС, рассылки, Telegram, выставки<br>выход: лид поставщика</span></td>
+    <td class="arrow">→<br>лид</td>
+    <td class="store">D1<br>База лидов</td>
+    <td class="arrow">→<br>карточка лида</td>
+    <td class="process">P2<br>Провести анкетирование<br><span class="small">вход: данные поставщика<br>выход: анкета</span></td>
+    <td class="arrow">→<br>анкета</td>
+    <td class="store">D2<br>Анкета и оценка</td>
+    <td class="arrow">→<br>оценка</td>
+    <td class="process">P3<br>Согласовать сети<br>и условия входа<br><span class="small">выход: список сетей, комиссии, цена входа</span></td>
+    <td class="arrow">→<br>условия</td>
+    <td class="store">D4<br>Сети и ЛПР</td>
+    <td class="arrow">→<br>список сетей</td>
+    <td class="state">Состояние базы:<br>поставщик квалифицирован<br>и согласован по сетям</td>
+  </tr>
+  <tr>
+    <td class="role">Владелец: КВК</td>
+    <td></td>
+    <td class="state">Потенциальные поставщики</td>
+    <td></td>
+    <td class="role">Владелец: КВК + поставщик</td>
+    <td></td>
+    <td class="state">Поставщик с анкетой</td>
+    <td></td>
+    <td class="role">Владелец: КВК + собственник</td>
+    <td></td>
+    <td class="state">Согласованные сети</td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td class="process">P4<br>Оформить договоры и ДС<br><span class="small">вход: условия<br>выход: подписанные документы</span></td>
+    <td class="arrow">→<br>договоры</td>
+    <td class="store">D3<br>Договоры и ДС</td>
+    <td class="arrow">→<br>договорная база</td>
+    <td class="process">P5<br>Передать контакты ЛПР<br><span class="small">выход: контакты ЛПР поставщику</span></td>
+    <td class="arrow">→<br>контакты</td>
+    <td class="process">P6<br>Сопровождать коммуникации<br><span class="small">вход: контакты, предложение<br>выход: статус переговоров</span></td>
+    <td class="arrow">→<br>статус</td>
+    <td><div class="decision"><span>Есть договор<br>или заказ?</span></div></td>
+    <td class="arrow">да →<br>заказ<br>нет →<br>доработка</td>
+    <td class="store">D5<br>Журнал коммуникаций</td>
+  </tr>
+  <tr>
+    <td class="role">Владелец: КВК + поставщик</td>
+    <td></td>
+    <td class="state">Поставщик с документами</td>
+    <td></td>
+    <td class="role">Владелец: КВК</td>
+    <td></td>
+    <td class="role">Владелец: поставщик + КВК</td>
+    <td></td>
+    <td class="role">Решение: сеть / ЛПР</td>
+    <td></td>
+    <td class="state">Переговоры и статусы</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td class="process">P7<br>Контролировать заказ и оплату<br><span class="small">вход: заказ, отчеты, акты<br>выход: статус оплаты</span></td>
+    <td class="arrow">→<br>заказ, оплата</td>
+    <td class="store">D6<br>Заказы, оплаты,<br>акты сверок</td>
+    <td class="arrow">→<br>факт заказа</td>
+    <td class="process">P8<br>Закрепить на полке<br><span class="small">вход: первый заказ<br>выход: повторный, третий, N-заказ</span></td>
+    <td class="arrow">→<br>отзывы</td>
+    <td class="store">D7<br>Отзывы и обратная связь</td>
+    <td class="arrow">→<br>результат</td>
+    <td class="goal">Финальная цель:<br>активный сетевой поставщик</td>
+  </tr>
+  <tr>
+    <td class="role">Владелец: КВК + поставщик</td>
+    <td></td>
+    <td class="state">Поставщик с первым заказом</td>
+    <td></td>
+    <td class="role">Владелец: КВК + поставщик + сеть</td>
+    <td></td>
+    <td class="state">Закрепление подтверждено отзывами</td>
+    <td></td>
+    <td class="state">База: активный поставщик сети</td>
+  </tr>
+</table>
+</div>
+
+<h2>5. Физическая детализация DFD</h2>
+<p class="caption">Рисунок 3. Физический уровень DFD: где фиксируются данные и какие контрольные сроки используются</p>
+<table>
+  <tr><th>Хранилище</th><th>Физическое содержание</th><th>Кто обновляет</th><th>Контроль</th></tr>
+  <tr><td>D1. База лидов</td><td>Поставщики из ЦЗС, рассылок, Telegram/SMM, выставок.</td><td>Команда КВК</td><td>Источник лида должен быть указан.</td></tr>
+  <tr><td>D2. Анкета и оценка</td><td>Анкета поставщика, текущая работа с сетями, категория товара, первичная оценка потенциала.</td><td>КВК + поставщик</td><td>Анкета должна быть полной до согласования сетей.</td></tr>
+  <tr><td>D3. Договоры и ДС</td><td>Договоры, дополнительные соглашения, согласованные условия сотрудничества.</td><td>КВК + поставщик</td><td>Переход к ЛПР возможен после оформления документов.</td></tr>
+  <tr><td>D4. Список сетей и ЛПР</td><td>Согласованный список сетей, контакты лиц, принимающих решения.</td><td>КВК</td><td>Контакты передаются только по согласованным сетям.</td></tr>
+  <tr><td>D5. Журнал коммуникаций</td><td>Еженедельные контакты, ежемесячные conference call, статусы переговоров.</td><td>КВК + поставщик</td><td>Минимум один конференц-кол в месяц и еженедельный контакт.</td></tr>
+  <tr><td>D6. Заказы, оплаты, акты сверок</td><td>Заказы, отчеты оплат, акты сверок между поставщиком и сетью.</td><td>Поставщик + КВК</td><td>Отчет до 5 числа, контроль оплаты до 10 числа.</td></tr>
+  <tr><td>D7. Отзывы и обратная связь</td><td>Отзывы по Prod1 / Prod2 / Prod3 / ProdN, результат закрепления на полке.</td><td>КВК + поставщик + сеть</td><td>Фиксируется после повторных заказов.</td></tr>
+</table>
+
+<h2>6. BPMN-схема</h2>
+<p class="caption">Рисунок 4. BPMN-схема процесса с ролями, действиями и точками выбора</p>
+<div class="diagram">
+<table>
+  <tr>
+    <th>Роль / дорожка</th>
+    <th>Старт</th>
+    <th>Квалификация</th>
+    <th>Согласование</th>
+    <th>Договоры</th>
+    <th>Коммуникации с сетью</th>
+    <th>Заказ и закрепление</th>
+  </tr>
+  <tr>
+    <td class="role">Команда КВК</td>
+    <td class="process">Найти поставщика</td>
+    <td class="process">Собрать анкету и оценить потенциал</td>
+    <td class="process">Согласовать сети, комиссии и цену входа</td>
+    <td class="process">Подготовить и проконтролировать договоры</td>
+    <td class="control">Контролировать еженедельный контакт и conference call</td>
+    <td class="control">Контролировать оплату, отзывы и повторные заказы</td>
+  </tr>
+  <tr>
+    <td class="role">Поставщик / собственник</td>
+    <td class="state">Получает предложение участия</td>
+    <td class="process">Заполняет анкету</td>
+    <td><div class="decision"><span>Условия<br>приняты?</span></div></td>
+    <td class="process">Подписывает договоры и ДС</td>
+    <td class="process">Ведет переговоры с ЛПР сети</td>
+    <td class="process">Передает отчеты оплат и обеспечивает повторные заказы</td>
+  </tr>
+  <tr>
+    <td class="role">Торговая сеть / ЛПР</td>
+    <td class="state">-</td>
+    <td class="state">-</td>
+    <td class="process">Получает предложение</td>
+    <td><div class="decision"><span>Готова<br>работать?</span></div></td>
+    <td class="process">Дает требования, статус встречи или решение</td>
+    <td class="process">Формирует заказ, оплату и обратную связь</td>
+  </tr>
+  <tr>
+    <td class="arrow">Логика переходов</td>
+    <td class="arrow">→ лид</td>
+    <td class="arrow">→ анкета и оценка</td>
+    <td class="arrow">нет → доработка условий<br>да → договоры</td>
+    <td class="arrow">→ контакты ЛПР</td>
+    <td class="arrow">нет заказа → доработка предложения<br>есть заказ → контроль оплаты</td>
+    <td class="arrow">→ активный сетевой поставщик</td>
+  </tr>
+</table>
+</div>
+
+<h2>7. Контур контроля, аналитики и руководства</h2>
+<p class="caption">Рисунок 5. Управленческий контур процесса</p>
+<div class="diagram">
+<table>
+  <tr>
+    <td class="analytics">Аналитика воронки<br><span class="small">лиды → анкеты → квалификация → договоры → переговоры → заказы → повторные заказы</span></td>
+    <td class="arrow">→<br>отчет</td>
+    <td class="control">Руководитель дивизиона / КВК<br><span class="small">контроль сроков, статусов, оплат и повторных заказов</span></td>
+    <td class="arrow">→<br>решения</td>
+    <td class="process">Корректировка процесса<br><span class="small">приоритеты сетей, доработка условий, усиление коммуникаций</span></td>
+  </tr>
+</table>
+</div>
+
+<h2>8. Реестр этапов, входов, выходов и ответственных</h2>
+<table>
+  <tr><th>№</th><th>Этап</th><th>Вход</th><th>Выход</th><th>Состояние базы после этапа</th><th>Ответственный</th></tr>
+  <tr><td>1</td><td>Собрать информацию и лиды</td><td>ЦЗС, рассылки, Telegram/SMM, выставки</td><td>Лид поставщика</td><td>Потенциальный поставщик</td><td>КВК</td></tr>
+  <tr><td>2</td><td>Провести анкетирование</td><td>Лид и данные компании</td><td>Анкета</td><td>Поставщик с заполненной анкетой</td><td>КВК + поставщик</td></tr>
+  <tr><td>3</td><td>Оценить потенциал</td><td>Анкета, категория, текущая работа с сетями</td><td>Оценка потенциала</td><td>Квалифицированный поставщик</td><td>КВК</td></tr>
+  <tr><td>4</td><td>Согласовать сети и условия входа</td><td>Оценка, желаемые сети, категория</td><td>Список сетей, комиссии, цена входа</td><td>Поставщик с согласованными условиями</td><td>КВК + собственник</td></tr>
+  <tr><td>5</td><td>Оформить договоры и ДС</td><td>Согласованные условия</td><td>Подписанные договоры и ДС</td><td>Поставщик с договорной базой</td><td>КВК + поставщик</td></tr>
+  <tr><td>6</td><td>Передать контакты ЛПР</td><td>Договорная база, список сетей</td><td>Контакты ЛПР</td><td>Поставщик готов к переговорам</td><td>КВК</td></tr>
+  <tr><td>7</td><td>Сопровождать коммуникации</td><td>Контакты ЛПР, предложение</td><td>Статус переговоров</td><td>Поставщик в переговорах</td><td>Поставщик + КВК</td></tr>
+  <tr><td>8</td><td>Контролировать заказ и оплату</td><td>Договор или заказ сети</td><td>Статус оплаты, акты сверок</td><td>Поставщик с первым заказом</td><td>КВК + поставщик</td></tr>
+  <tr><td>9</td><td>Закрепить на полке</td><td>Первый заказ и обратная связь</td><td>Повторный, третий и N-заказ, отзывы</td><td>Активный сетевой поставщик</td><td>КВК + поставщик + сеть</td></tr>
+</table>
+
+<h2>9. Проверка соответствия требованиям</h2>
+<table>
+  <tr><th>Требование</th><th>Как выполнено</th></tr>
+  <tr><td>5.1. Структура, нумерация, названия</td><td>Все схемы пронумерованы: Рисунок 1-5, этапы имеют номера и понятные названия.</td></tr>
+  <tr><td>5.2. Иерархия и последовательность</td><td>Показаны уровни DFD: контекстный, логический и физический; переходы идут слева направо.</td></tr>
+  <tr><td>5.3. Читаемость</td><td>Схемы собраны таблицами с контрастными блоками и короткими подписями для печати.</td></tr>
+  <tr><td>5.4. DFD и BPMN</td><td>Документ содержит DFD и BPMN-представление одного процесса.</td></tr>
+  <tr><td>5.5. Фигуры</td><td>Процессы обозначены прямоугольниками, цели - кругами, точки выбора - ромбами.</td></tr>
+  <tr><td>5.6. Этапы, переходы, роли</td><td>В схеме и реестре указаны названия этапов, входы, выходы и ответственные роли.</td></tr>
+  <tr><td>5.7. Единый шаблон DFD</td><td>Верхняя часть содержит наименование процесса, ниже идут этапы, под этапами - владельцы и состояния базы.</td></tr>
+  <tr><td>5.8. Изменение состояния базы</td><td>Показаны состояния: потенциальный, с анкетой, квалифицированный, с договорной базой, в переговорах, с заказом, активный сетевой поставщик.</td></tr>
+  <tr><td>5.9. Подписи этапов и сущностей</td><td>Этапы сформулированы как действия, состояния базы - как состояние поставщика на шаге.</td></tr>
+  <tr><td>5.10. Контроль, аналитика, руководство</td><td>Отдельно вынесен управленческий контур контроля и аналитики.</td></tr>
+</table>
+
+</body>
+</html>
